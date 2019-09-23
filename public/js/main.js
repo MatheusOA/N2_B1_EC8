@@ -1,23 +1,23 @@
-angular.module('alurapic', ['minhasDiretivas','ngAnimate', 'ngRoute', 'ngResource', 'meusServicos'])
+angular.module('estoque', ['ngAnimate', 'ngRoute'])
 	.config(function($routeProvider, $locationProvider) {
 
 		$locationProvider.html5Mode(true);
 
-		$routeProvider.when('/fotos', {
+		$routeProvider.when('/roupas', {
 			templateUrl: 'partials/principal.html',
-			controller: 'FotosController'
+			controller: 'RoupasController'
 		});
 
-		$routeProvider.when('/fotos/new', {
-			templateUrl: 'partials/foto.html',
-			controller: 'FotoController'
+		$routeProvider.when('/roupas/new', {
+			templateUrl: 'partials/roupa.html',
+			controller: 'RoupaController'
 		});
 
-		$routeProvider.when('/fotos/edit/:fotoId', {
-			templateUrl: 'partials/foto.html',
-			controller: 'FotoController'
+		$routeProvider.when('/roupas/edit/:roupaId', {
+			templateUrl: 'partials/roupa.html',
+			controller: 'RoupaController'
 		});
 
-		$routeProvider.otherwise({redirectTo: '/fotos'});
+		$routeProvider.otherwise({redirectTo: '/roupas'});
 
 	});
