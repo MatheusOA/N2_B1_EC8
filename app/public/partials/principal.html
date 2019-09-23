@@ -1,0 +1,66 @@
+<div class="jumbotron">
+	<h1 class="text-center">Registro Estoque</h1>
+</div>
+
+<p ng-show="mensagem.length" class="alert alert-info">
+	{{mensagem}}
+</p>
+
+
+<div class="row">
+	<div class="col-md-12">
+		<form>
+			<div class="input-group">
+								
+				<input class="form-control" placeholder="Digite o que procura" 
+				ng-model="filtro" ng-model-options="{ debounce: 500 }">
+					
+
+				<span class="input-group-btn">
+					<a href="#/roupas/new" class="btn btn-primary" type="button">
+						Novo item
+					</a>
+				</span>
+			</div>
+		</form>
+	</div> <!-- fim col-md-12 -->
+</div> <!-- fim row -->
+
+
+
+<table class="table">
+	<thead>
+		<tr>
+		<th scope="col">Codigo</th>
+		<th scope="col">Data de Entrada</th>
+		<th scope="col">Tipo</th>
+		<th scope="col">Marca</th>
+		<th scope="col">Características</th>
+		<th scope="col">Tamanho</th>
+		<th scope="col">Cor</th>
+		<th scope="col">Valor na etiqueta de compra</th>
+		<th scope="col">Valor pagao na compra</th>
+		<th scope="col">Valo de margem</th>
+		<th scope="col">Preço sugerido</th>
+		<th scope="col">Editar</th>
+		<th scope="col">Deletar</th>
+
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="roupa in roupas | filter: filtro">
+		<td>{{roupa.codigoItem}}</td>
+		<td>{{roupa.dataEntrada}}</td>
+		<td>{{roupa.tipo}}</td>
+		<td>{{roupa.marca}}</td>
+		<td>{{roupa.caracteristicas}}</td>
+		<td>{{roupa.tamanho}}</td>
+		<td>{{roupa.cor}}</td>
+		<td>{{roupa.valorEtiquetaCompra}}</td>
+		<td>{{roupa.valorPagoCompra}}</td>
+		<td>{{roupa.valorMargem}}</td>
+		<td>{{roupa.precoSugerido}}</td>
+		<td><a class="btn btn-primary btn-block" href="#/roupas/edit/{{roupa._id}}"> Editar </a></td>
+		<td><button class="btn btn-danger btn-block" ng-click="remover(roupa)">Remover</button></td>
+		</tr>
+</table>
